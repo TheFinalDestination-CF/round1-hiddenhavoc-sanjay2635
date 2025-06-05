@@ -49,7 +49,7 @@
             font-size: 2rem;
             color: var(--primary-red);
             text-shadow: 0 0 20px var(--primary-red);
-            animation: pulse 2s infinite;
+            animation: pulse 2s infinite;}
         
         @keyframes pulse {
             0%, 100% { text-shadow: 0 0 20px var(--primary-red); }
@@ -101,7 +101,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: glow 3s infinite alternate;
-            invalid-property: value;
+           
         }
         @keyframes glow {
             from { filter: drop-shadow(0 0 20px var(--primary-red)); }
@@ -133,7 +133,7 @@
         }
         .cta-button:hover, .submit-btn:hover {
             transform: translateY(-5px) scale(1.05);
-            box-shadow 0 10px 30px rgba(255, 0, 0, 0.5);
+            box-shadow :0 10px 30px rgba(255, 0, 0, 0.5);
         }
         .section {
             padding: 100px 2rem;
@@ -238,7 +238,7 @@
             0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
             50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
             100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        
+        }
         .map-container {
             background: rgba(139, 69, 19, 0.2);
             border: 3px solid var(--golden);
@@ -566,7 +566,7 @@
                 e.preventDefault();
                 showMessage('Welcome to the Hunt!', 'Your treasure hunting adventure begins now...');
                 e.target.reset();
-            };
+            });
             
             document.querySelectorAll('.map-location').forEach(location => {
                 location.addEventListener('click', () => {
@@ -589,12 +589,11 @@
                     `;
                     row.style.position = 'relative';
                     row.appendChild(coin);
-                    setTimeout(() => coin.destroy(), 500);
+                    setTimeout(() => coin.destroy() , 500);
                 });
             });
         });
         
         
-    
-</body>
-</html>
+    </script>
+

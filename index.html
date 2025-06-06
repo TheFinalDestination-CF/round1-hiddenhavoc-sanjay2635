@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +51,7 @@
             color: var(--primary-red);
             text-shadow: 0 0 20px var(--primary-red);
             animation: pulse 2s infinite;
-        
+        }
         @keyframes pulse {
             0%, 100% { text-shadow: 0 0 20px var(--primary-red); }
             50% { text-shadow: 0 0 30px var(--primary-red); }
@@ -101,7 +102,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: glow 3s infinite alternate;
-            invalid-property: value;
         }
         @keyframes glow {
             from { filter: drop-shadow(0 0 20px var(--primary-red)); }
@@ -133,7 +133,7 @@
         }
         .cta-button:hover, .submit-btn:hover {
             transform: translateY(-5px) scale(1.05);
-            box-shadow 0 10px 30px rgba(255, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.5);
         }
         .section {
             padding: 100px 2rem;
@@ -183,7 +183,7 @@
         .treasure-map { 
             background: linear-gradient(45deg, var(--dark-gray), var(--black));
         }
-        leaderboard { 
+        .leaderboard { 
             background: var(--dark-red);
         }
         .contact-form {
@@ -238,7 +238,7 @@
             0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
             50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
             100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        
+        }
         .map-container {
             background: rgba(139, 69, 19, 0.2);
             border: 3px solid var(--golden);
@@ -359,15 +359,17 @@
         <div style="font-size: 2rem;">🏴‍☠️</div>
         <div>Welcome, Treasure Hunter!</div>
         <div style="font-size: 1rem; opacity: 0.9;">Your adventure awaits...</div>
+    </div>
     
     <nav>
         <div class="logo">FINAL DESTINATION</div>
-        <ol class="nav-links">
+        <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#hunt">Hunt</a></li>
             <li><a href="#contact">Join</a></li>
-        </ol>
+        </ul>
     </nav>
+    
     <section class="hero" id="home">
         <div>
             <div class="treasure-badge">🏴‍☠️ ULTIMATE TREASURE HUNT 🏴‍☠️</div>
@@ -376,17 +378,19 @@
             <a href="#hunt" class="cta-button">Start Your Hunt</a>
         </div>
     </section>
+    
     <div class="treasure-counter">
         <div>Treasures Found</div>
         <div class="counter-number" id="counterNumber">0</div>
     </div>
+    
     <section class="section treasure-map" id="hunt">
         <div class="container">
             <h2 class="section-title">Interactive Treasure Map</h2>
             <p style="text-align: center; font-size: 1.2rem; color: var(--golden);">Click on locations to discover hidden treasures!</p>
             <div class="treasure-showcase">
-                <img src="ancient.jpg" alt="Ancient Treasure Chest" class="treasure-image">
-                <img src="pirate.jpg" alt="Pirate Gold" class="treasure-image">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80" alt="Ancient Treasure Chest" class="treasure-image">
+                <img src="https://images.unsplash.com/photo-1560707303-4e980ce876ad?w=600&q=80" alt="Pirate Gold" class="treasure-image">
             </div>
             <div class="map-container">
                 <div class="grid">
@@ -414,7 +418,7 @@
                         <span style="font-size: 3rem;">🌙</span>
                         <h4>Shadow Valley</h4>
                         <p>Dark ravine</p>
-                    
+                    </div>
                     <div class="card map-location" data-treasure="Mermaid's Pearl">
                         <span style="font-size: 3rem;">🐚</span>
                         <h4>Coral Reef</h4>
@@ -424,6 +428,7 @@
             </div>
         </div>
     </section>
+    
     <section class="section leaderboard">
         <div class="container">
             <h2 class="section-title">Treasure Hunter Leaderboard</h2>
@@ -441,7 +446,7 @@
                     <div>12,350</div>
                 </div>
                 <div class="leaderboard-row">
-                    <div><span class="rank-badge sliver">2</span></div>
+                    <div><span class="rank-badge silver">2</span></div>
                     <div>Treasure Seeker Sarah</div>
                     <div>43</div>
                     <div>11,890</div>
@@ -467,6 +472,7 @@
             </div>
         </div>
     </section>
+    
     <section class="section contact" id="contact">
         <div class="container">
             <h2 class="section-title">Join the Hunt</h2>
@@ -485,16 +491,18 @@
             </form>
         </div>
     </section>
+    
     <footer>
         <p>© 2025 Final Destination Treasure Hunt. All treasures reserved.</p>
     </footer>
+    
     <script>
-        cursor = document.getElementById('cursor');
+        const cursor = document.getElementById('cursor');
         const greeting = document.getElementById('greeting');
         const treasureCounter = document.getElementById('counterNumber');
         
         let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
-        let treasuresFound = undefinedVariable; 
+        let treasuresFound = 0; 
         
         document.addEventListener('mousemove', e => {
             mouseX = e.clientX;
@@ -511,7 +519,7 @@
         
         function createFloatingElements() {
             const elements = ['🗝️', '🔍', '💎', '⚡', '🏴‍☠️', '🗺️', '💰', '⭐'];
-            for (let i = 0; i <= 8; i++) { 
+            for (let i = 0; i < 8; i++) { 
                 const el = document.createElement('div');
                 el.className = 'floating-element';
                 el.textContent = elements[Math.floor(Math.random() * elements.length)];
@@ -524,7 +532,7 @@
         
         function createSparkles(element) {
             for (let i = 0; i < 6; i++) {
-                const sparkle = document.createElement('div')
+                const sparkle = document.createElement('div');
                 sparkle.innerHTML = '✨';
                 sparkle.style.cssText = `
                     position: absolute; pointer-events: none; font-size: 1.5rem;
@@ -553,7 +561,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             createFloatingElements();
             animateCursor();
-            setTimeout(() => wrongElement.style.display = 'none', 4000); 
+            setTimeout(() => greeting.style.display = 'none', 4000); 
             
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', e => {
@@ -566,15 +574,16 @@
                 e.preventDefault();
                 showMessage('Welcome to the Hunt!', 'Your treasure hunting adventure begins now...');
                 e.target.reset();
-            };
+            });
             
             document.querySelectorAll('.map-location').forEach(location => {
                 location.addEventListener('click', () => {
                     if (!location.classList.contains('discovered')) {
                         location.classList.add('discovered');
-                        treasuresFound--; 
+                        treasuresFound++; 
                         treasureCounter.textContent = treasuresFound;
                         createSparkles(location);
+                        showMessage(`Treasure Found!`, `You discovered: ${location.dataset.treasure}`);
                     }
                 });
             });
@@ -589,12 +598,10 @@
                     `;
                     row.style.position = 'relative';
                     row.appendChild(coin);
-                    setTimeout(() => coin.destroy(), 500);
+                    setTimeout(() => coin.remove(), 500);
                 });
             });
         });
-        
-        
-    
+    </script>
 </body>
 </html>
